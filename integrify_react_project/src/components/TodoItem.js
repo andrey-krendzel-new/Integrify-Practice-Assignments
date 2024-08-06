@@ -1,13 +1,28 @@
 import "../App.css";
 import * as React from "react";
-import styles from '../App.css';
 
-const TodoItem = ({title, description, status}) => {
+const TodoItem = ({title, deadline, status}) => {
+    //status to CSS converter
+    let className;
+    switch (status) {
+      case "Done":
+        className="itemDone";
+        break;
+      case "In progress":
+        className="itemInProgress";
+        break;
+      case "Not started":
+        className="itemNotStarted";
+        break;
+      default:
+        break;
+    }
+  
     return (
-      <div className={status}>
+      <div className={className}>
         <b>{title}</b>
         <br />
-        <i>{description}</i>
+        <i>{deadline}</i>
       </div>
     );
   }

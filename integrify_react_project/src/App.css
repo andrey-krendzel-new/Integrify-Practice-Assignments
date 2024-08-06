@@ -56,18 +56,21 @@
 }
 
 .itemDone {
-  background: linear-gradient(to left, lightgray 95%, green 5%);
-  padding-left: 15%;
+  background: linear-gradient(to left, lightgray 90%, green 10%);
 }
 
 .itemNotStarted {
   background: linear-gradient(to left, lightgray 90%, red 10%);
-  padding-left: 15%;
 }
 
 .itemInProgress {
   background: linear-gradient(to left, lightgray 90%, yellow 10%);
-  padding-left: 15%;
+}
+
+.itemDone, .itemNotStarted, .itemInProgress {
+  padding: 5%;
+  padding-left: 15%; 
+  margin-bottom: 5%;
 }
 
 @media (prefers-reduced-motion: no-preference) {

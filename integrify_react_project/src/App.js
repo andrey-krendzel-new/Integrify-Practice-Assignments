@@ -14,7 +14,7 @@ function App() {
   const [deadline, setDeadline] = React.useState("");
   const [title, setTitle] = React.useState("");
   const [status, setStatus] = React.useState("In progress");
-  const [todo, setTodos] = React.useState([{title: "Lean JavaScript closure", description: "Deadline: tonight", status: "itemDone"}, {}]);
+  const [todos, setTodos] = React.useState([{title: "Lean JavaScript closure", deadline: "Tonight", status: "Done"}]);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -27,12 +27,14 @@ function App() {
   };
 
   const handleDeadlineChange = (event) => {
-    setTitle(event.target.value);
+    setDeadline(event.target.value);
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    event.target.reset();
+    setTodos((prevTodos) => [
+      ...prevTodos,
+      { title: title,  status: status, deadline: deadline},
+    ]);
   };
 
   return (
@@ -43,9 +45,9 @@ function App() {
           Add new todo
         </Button>
         </div>
-        <TodoList className="todoListMain" />
+        <TodoList className="todoListMain" todos={todos} />
           <div className="verticallyAlignedContainer">
-          <p className="itemDone"> Done </p> <p className="itemDone"> Not started </p><p className="itemDone"> In progress </p>
+          <p className="itemNotStarted"> Not started </p> <p className="itemInProgress"> In progress </p><p className="itemDone"> Done </p>
           </div>
       </div>
       <Modal
@@ -62,7 +64,7 @@ function App() {
             <div className="horizontallyAlignedContainer">
               <TextField
                 id="outlined-basic"
-                label="Deadline"
+                label="Title"
                 value={title}
                 variant="outlined"
                 className="marginBottom"
@@ -70,8 +72,8 @@ function App() {
               />
               <TextField
                 id="outlined-basic"
-                value={title}
-                label="Title"
+                value={deadline}
+                label="Deadline"
                 variant="outlined"
                 className="marginBottom"
                 onChange={handleDeadlineChange}
@@ -84,8 +86,8 @@ function App() {
                 label="Status"
                 onChange={handleStatusChange}
               >
-                <MenuItem value="In progress">In progress</MenuItem>
                 <MenuItem value="Not started">Not started</MenuItem>
+                <MenuItem value="In progress">In progress</MenuItem>
                 <MenuItem value="Done">Done</MenuItem>
               </Select>
               <Button variant="contained" onClick={() => setOpen(false)}>
