@@ -14,7 +14,9 @@ function App() {
   const [deadline, setDeadline] = React.useState("");
   const [title, setTitle] = React.useState("");
   const [status, setStatus] = React.useState("In progress");
-  const [todos, setTodos] = React.useState([{title: "Lean JavaScript closure", deadline: "Tonight", status: "Done"}]);
+  const [todos, setTodos] = React.useState([
+    { title: "Lean JavaScript closure", deadline: "Tonight", status: "Done" },
+  ]);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -33,7 +35,7 @@ function App() {
   const handleSubmit = (event) => {
     setTodos((prevTodos) => [
       ...prevTodos,
-      { title: title,  status: status, deadline: deadline},
+      { title: title, status: status, deadline: deadline },
     ]);
   };
 
@@ -41,14 +43,20 @@ function App() {
     <div>
       <div className="limitedSizeContainer">
         <div className="marginBottom">
-        <Button onClick={handleOpen} variant="contained" className="marginBottom">
-          Add new todo
-        </Button>
+          <Button
+            onClick={handleOpen}
+            variant="contained"
+            className="marginBottom"
+          >
+            Add new todo
+          </Button>
         </div>
         <TodoList className="todoListMain" todos={todos} />
-          <div className="verticallyAlignedContainer">
-          <p className="itemNotStarted"> Not started </p> <p className="itemInProgress"> In progress </p><p className="itemDone"> Done </p>
-          </div>
+        <div className="verticallyAlignedContainer">
+          <p className="itemNotStarted"> Not started </p>{" "}
+          <p className="itemInProgress"> In progress </p>
+          <p className="itemDone"> Done </p>
+        </div>
       </div>
       <Modal
         open={open}
@@ -83,6 +91,7 @@ function App() {
                 labelId="status"
                 id="status"
                 value={status}
+                defaultValue="Status"
                 label="Status"
                 onChange={handleStatusChange}
               >

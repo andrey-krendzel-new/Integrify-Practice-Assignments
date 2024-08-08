@@ -26,13 +26,13 @@
   background-color: white;
   border: 2px solid #000;
   box-shadow: 24;
-  padding: 5%; 
+  padding: 5%;
 }
 
 .horizontallyAlignedContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .verticallyAlignedContainer {
@@ -48,7 +48,7 @@
 }
 
 .marginBottom {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .todoListMain {
@@ -56,20 +56,22 @@
 }
 
 .itemDone {
-  background: linear-gradient(to left, lightgray 90%, green 10%);
+  background: linear-gradient(to left, lightgray 95%, green 5%);
 }
 
 .itemNotStarted {
-  background: linear-gradient(to left, lightgray 90%, red 10%);
+  background: linear-gradient(to left, lightgray 95%, red 5%);
 }
 
 .itemInProgress {
-  background: linear-gradient(to left, lightgray 90%, yellow 10%);
+  background: linear-gradient(to left, lightgray 95%, yellow 5%);
 }
 
-.itemDone, .itemNotStarted, .itemInProgress {
+.itemDone,
+.itemNotStarted,
+.itemInProgress {
   padding: 5%;
-  padding-left: 15%; 
+  padding-left: 15%;
   margin-bottom: 5%;
 }
 

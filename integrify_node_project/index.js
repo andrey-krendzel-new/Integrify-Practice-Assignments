@@ -5,6 +5,13 @@ const app = http.createServer((request, response) => {
   response.end('Hello World')
 })
 
+let notes = [
+  {
+    id: "1",
+    content: "HTML is easy",
+    important: true
+  },]
+
 const PORT = 3001
 app.listen(PORT)
 console.log(`Server running on port ${PORT}`)
