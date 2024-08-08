@@ -1,17 +1,27 @@
 const http = require('http')
+const express = require('express')
+const app = express()
 
-const app = http.createServer((request, response) => {
-  response.writeHead(200, { 'Content-Type': 'text/plain' })
-  response.end('Hello World')
+app.get('/', (request, response) => {
+  response.send({"message": "Hello, this is get response"});
 })
 
-let notes = [
-  {
-    id: "1",
-    content: "HTML is easy",
-    important: true
-  },]
+app.post('/', (request, response) => {
+  response.send({"message": "Hello, this is post response"});
+})
 
-const PORT = 3001
+app.put('/', (request, response) => {
+  response.send({"message": "Hello, this is put response"});
+})
+
+app.delete('/', (request, response) => {
+  response.send({"message": "Hello, this is delete response"});
+})
+
+app.patch('/', (request, response) => {
+  response.send({"message": "Hello, this is patch response"});
+})
+
+const PORT = 5000
 app.listen(PORT)
 console.log(`Server running on port ${PORT}`)
